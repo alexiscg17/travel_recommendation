@@ -1,72 +1,122 @@
-*{
+  body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-nav {
-    background-color: #4f6185;
-    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #F7F7F7;
+    background: url('./berlin_BG.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 19, 43, 0.6); /* dark navy tint */
+    z-index: -1;
+  }
+
+  nav {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(28, 37, 65, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  nav h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FFB400;
+    margin: 0;
   }
   
   nav ul {
-    list-style-type: none;
-    /* padding: 0; */
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
   }
   
   nav a {
     text-decoration: none;
-    color: #333;
+    color: #F7F7F7;
     font-weight: bold;
+    transition: color 0.3s ease;
   }
   
-  /* Basic CSS for the form elements */
-  body {
-    font-family: Arial, sans-serif;
-    /* margin: 20px; */
+  nav a:hover {
+    color: #FFB400;
   }
   
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  div {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    display: inline-block;
-    width: 100px;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 200px;
-    padding: 5px;
-  }
-  
-  button {
-    padding: 7px 15px;
-    background-color: #4CAF50;
-    color: white;
+  nav input[type="text"] {
+    padding: 0.5rem;
+    border-radius: 5px;
     border: none;
+    outline: none;
+    background: #E0E0E0;
+    color: #0B132B;
+    font-size: 1rem;
+    min-width: 250px;
+  }
+  
+  nav button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #FFB400;
+    color: #0B132B;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s ease;
   }
   
-  button:hover {
-    background-color: #45a049;
+  nav button:hover {
+    background: #F5A000;
+  }
+
+  .container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    min-height: 100vh;
+    text-align: left;
+    padding: 2rem;
   }
   
-  /* Basic CSS for the report section */
-  h2 {
-    margin-top: 30px;
+  .home h1 {
+    font-size: 6rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #FFB400;
   }
+  
+  .home h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #E0E0E0;
+  }
+  
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .home h1 {
+      font-size: 2.2rem;
+    }
+  
+    .home h2 {
+      font-size: 1.2rem;
+    }
+  }
+  
