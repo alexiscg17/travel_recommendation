@@ -20,18 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error("Error loading JSON:", error));
 
     function displayResults(items) {
-        if (items.length === 0) {
-            resultsDiv.innerHTML = "<p>No results found.</p>";
-            return;
-        }
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "";
 
-        resultsDiv.innerHTML = items.map(item => `
-        <div class="card">
-          <h3>${item.name}</h3>
-          <img src="${item.imageUrl}" alt="${item.name}" style="width:200px;height:auto;">
-          <p>${item.description}</p>
-        </div>
-      `).join("");
+        if (items.length > 0) {
+            resultsDiv.style.display = "flex"; // or "block"
+            items.forEach(item => {
+                resultsDiv.innerHTML += `
+                  <div class="recommendation_card">
+                    <img src="${item.imageUrl || './images/dummyImage.jpg'}" alt="${item.name}">
+                    <h1>${item.name}</h1>
+                    <h2>${item.description}</h2>
+                  </div>
+                `;
+            });
+        } else {
+            resultsDiv.style.display = "none"; // hide if no matches
+        }
     }
 
     function searchDestinations(keyword) {
